@@ -3,6 +3,11 @@ const router = express.Router();
 
 let users = [];
 
+router.get('/', function (eq, res) {
+   res.send('Hello World!');
+
+});
+
 router.get('/users', function(req, res) {
     res.json(users);
 });

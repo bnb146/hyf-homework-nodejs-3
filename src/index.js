@@ -4,16 +4,13 @@ const bodyParser = require('body-parser')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
+//Require the Route defined in router.js
+const router = require('router');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-//Require the Route defined in router.js
-const router = require('router.js');
-
+app.use('/', router);
 app.use('/users', router);
 
 app.listen(port, () => {
