@@ -37,6 +37,20 @@ app.post('/users', (req, res) => {
     res.send('the user created');
 });
 
+app.delete('/users/:id', (req, res) => {
+   const userID = req.params.id;
+
+   for(let user of users) {
+       if(user.id === userID) {
+           users.splice(user.id);
+           res.status(200);
+           return
+       }
+   }
+
+   res.status(204);
+});
+
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
 })
