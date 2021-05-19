@@ -19,10 +19,22 @@ app.get('/users', (req, res) => {
     res.json(users);
 });
 app.get('/users/:id', (req, res) => {
-    res.send('get user - NOT IMPLEMENTED YET');
+    const userId = req.params.id;
+
+    for(let user of users) {
+        if(user.id === userId) {
+            res.send(userId);
+            return
+        }
+    }
+
+    res.status(404).send('User not found');
 });
 app.post('/users', (req, res) => {
-   res.send('user create - NOT IMPLEMENTED YET');
+   const user = req.body;
+   users.push(user);
+
+    res.send('the user created');
 });
 
 app.listen(port, () => {
