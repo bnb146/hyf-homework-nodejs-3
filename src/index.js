@@ -43,7 +43,7 @@ app.delete('/users/:id', (req, res) => {
    for(let user of users) {
        if(user.id === userID) {
            users.splice(user.id);
-           res.status(200).send('user deleted');
+           res.status(200);
            return
        }
    }
