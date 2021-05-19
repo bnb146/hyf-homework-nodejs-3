@@ -18,6 +18,12 @@ const users = [];
 app.get('/users', (req, res) => {
     res.json(users);
 });
+app.get('/users/:id', (req, res) => {
+    res.send('get user - NOT IMPLEMENTED YET');
+});
+app.post('/users', (req, res) => {
+   res.send('user create - NOT IMPLEMENTED YET');
+});
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
